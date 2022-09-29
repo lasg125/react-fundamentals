@@ -7,11 +7,14 @@ import '../box-styles.css'
   small lightblue box
 </Box>
 
-function Box({size, style, children}) {
+function Box({style, size, className = '', ...otherProps}) {
+  const sizeClassName = size ? `box--${size}` : ''
   return (
-    <div className={`box box--${size}`} style={{fontStyle: 'italic', ...style}}>
-      {children}
-    </div>
+    <div
+      className={`box ${className} ${sizeClassName}`}
+      style={{fontStyle: 'italic', ...style}}
+      {...otherProps}
+    />
   )
 }
 
